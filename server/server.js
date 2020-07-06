@@ -23,6 +23,8 @@ io.on('connection', (socket) => {
         socket.emit('message',{user : "admin", text : `${user.userName}, Welcome to the room ${user.roomName}`});
         socket.broadcast.to(user.roomName).emit('message', {user : "admin", text : `${user.userName}, has joined!`} )
         socket.join(roomName);
+        // to display the no. of users present in a room
+        io.to(user.roomName).emit('roomData', {users : getUsersInRoom(user.roomName)})
         callback();
         
     })

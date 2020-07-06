@@ -1,6 +1,6 @@
 import React from "react";
 import List from "./ListGroup";
-import {useRoutes, navigate} from "hookrouter";
+import {useRoutes} from "hookrouter";
 import Room from "./Room";
 
 const routes = {

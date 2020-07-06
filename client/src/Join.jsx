@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import { navigate, A} from "hookrouter";
+import { navigate} from "hookrouter";
 
 const Join = (props) => {
 
