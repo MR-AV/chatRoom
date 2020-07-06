@@ -20,6 +20,7 @@ const Chat = ({name, username}) => {
     useEffect(() => {
 
         socket = io(ENDPOINT);
+        console.log("inside nameeffect ", name);
 
         // setRoomName(name);
         // setUserName(userName);
@@ -30,12 +31,14 @@ const Chat = ({name, username}) => {
         });
 
         return () => {
+            console.log("unmounting!!");
             socket.emit('disconnect');
-            socket.off();
+             socket.close();
         }
-    } ,[ENDPOINT,name, username]);
+    } ,[ENDPOINT, name, username]);
 
     useEffect(() => {
+        console.log("inside effect ", name);
         socket.on('message', (message) => {
             setMessages(prev => [...prev, message]);
         });
@@ -52,7 +55,7 @@ const Chat = ({name, username}) => {
         }
     }
 
-        console.log("message = ", message, "messages = ", messages);
+        console.log( "messages = ", messages);
         
     return (
         <>

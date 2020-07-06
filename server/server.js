@@ -10,7 +10,7 @@ const {addUser, removeUser, getUser, getUsersInRoom} = require("./users");
 
 
 io.on('connection', (socket) => {
-    console.log("New User Has connected !!!")
+    console.log("New User Has connected !!!", socket.id)
   
     socket.on('join',({name : roomName, username :userName}, callback)  => {
 
