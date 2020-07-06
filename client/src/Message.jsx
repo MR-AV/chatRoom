@@ -1,5 +1,6 @@
 import React from "react";
 import "./Message/Message.css"
+import ReactEmoji from "react-emoji";
 
 const Message = ({user, name}) => {
 
@@ -13,7 +14,7 @@ const Message = ({user, name}) => {
         <div className = "chatBox justify-end"> 
         <p className ="username">{user.user}</p>
         <div className = "text">
-        <p className = "usertext">{user.text}</p>
+        <p className = "usertext">{ReactEmoji.emojify(user.text)}</p>
         </div>
         
         </div>
@@ -23,7 +24,7 @@ const Message = ({user, name}) => {
         (<div className = "chatBox justify-start "> 
         
         <div className = "text">
-        <p className = "usertext">{user.text}</p>
+        <p className = "usertext">{ReactEmoji.emojify(user.text)}</p>
         </div>
         <p className ="username">{user.user}</p>
         </div>
