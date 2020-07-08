@@ -1,7 +1,7 @@
 import React from "react";
-import List from "./ListGroup";
+import List from "./Components/AvailableRooms/ListGroup";
 import {useRoutes} from "hookrouter";
-import Room from "./Room";
+import Room from "./Components/RoomSelect/Room";
 
 const routes = {
 

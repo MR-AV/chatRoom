@@ -1,14 +1,14 @@
 import React from "react";
-import Chat from "./Chat";
-import Join from "./Join";
+import Chat from "../Chat/Chat";
+import Join from "../JoinRoom/Join";
 import {useRoutes} from "hookrouter";
+
 
 
 const routes = {
 
     '/' : () => (name) => <Join name = {name} />,
     '/chat/:username' : ({username}) => (name)  => <Chat name = {name} username = {username} />
-
 }
 
 

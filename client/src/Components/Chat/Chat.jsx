@@ -1,11 +1,12 @@
 import React ,{useState, useEffect} from "react";
 import io from "socket.io-client";
-import RoomInfo from "./RoomInfo";
-import SendMessage from "./SendMessage";
-import DisplayMessages from "./DisplayMessages";
+import RoomInfo from "../RoomInfo/RoomInfo";
+import SendMessage from "../SendMessage/SendMessage";
+import DisplayMessages from "../Message/DisplayMessages";
 import {Card} from "react-bootstrap";
-import UserPresent from "./UserPresent";
-import "./Chat/Chat.css";
+import UserPresent from "../UserPresent/UserPresent";
+import "../UserPresent/UserPresent.css";
+
 let socket;
 
 const Chat = ({name, username}) => {
@@ -26,8 +27,10 @@ const Chat = ({name, username}) => {
         // setUserName(userName);
         
         socket.emit('join', {name, username}, (error) => {
-            if(error)
+            if(error){
             alert(error);
+           
+            }
         });
 
         return () => {
@@ -38,7 +41,7 @@ const Chat = ({name, username}) => {
     } ,[ENDPOINT, name, username]);
 
     useEffect(() => {
-        console.log("inside effect ", name);
+        // console.log("inside effect ", name);
         socket.on('message', (message) => {
             setMessages(prev => [...prev, message]);
         });
@@ -55,7 +58,7 @@ const Chat = ({name, username}) => {
         }
     }
 
-        console.log( "messages = ", messages);
+       // console.log( "messages = ", messages);
         
     return (
         <>

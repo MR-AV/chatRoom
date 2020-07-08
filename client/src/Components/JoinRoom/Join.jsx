@@ -1,6 +1,7 @@
 import React,{useState} from "react";
 import { navigate} from "hookrouter";
 
+
 const Join = (props) => {
 
     const [name, setName] = useState('');
@@ -8,7 +9,8 @@ const Join = (props) => {
     function handleChange(e){
         e.preventDefault();
         if(name)
-           navigate('/room/' + props.name + '/chat/' + name, true);
+               navigate('/room/' + props.name + '/chat/' + name , true);
+    
         
 
     }
