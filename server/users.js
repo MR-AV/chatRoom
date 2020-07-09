@@ -1,12 +1,21 @@
 
 const users = [];
 
+const isUserExist = ({roomName, userName}) => {
+
+    const existingUSer = users.find(user => user.roomName === roomName && user.userName == userName);
+
+        if(existingUSer) return true;
+
+        return false;
+}
+
 const addUser = ({id, roomName, userName}) => {
 
     roomName = roomName.trim().toLowerCase();
     userName = userName.trim().toLowerCase();
 
-    const existingUSer = users.find(user => user.roomName === roomName && user.userName == userName);
+    const existingUSer = isUserExist({roomName, userName});
     if(existingUSer){
         return ({error : "username is taken"});
     }
@@ -27,4 +36,4 @@ const getUser = (id) => users.find(user => user.id === id) ;
 const getUsersInRoom = (roomName) =>  users.filter(user => user.roomName === roomName);
     
 
-module.exports = {addUser, removeUser,getUser,getUsersInRoom}
+module.exports = {isUserExist , addUser, removeUser,getUser,getUsersInRoom}

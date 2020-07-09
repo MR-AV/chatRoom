@@ -5,9 +5,22 @@ const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
 const PORT = process.env.PORT || 5000;
-const {addUser, removeUser, getUser, getUsersInRoom} = require("./users");
+const {isUserExist, addUser, removeUser, getUser, getUsersInRoom} = require("./users");
 
 
+
+app.get('/isUserPresent/:roomName/:userName',(req, res) => {
+
+    const userName = req.params.userName.trim().toLowerCase();
+    const roomName = req.params.roomName.trim().toLowerCase();
+
+  
+
+    const isPresent = isUserExist({roomName, userName});
+
+    res.send(isPresent);
+
+})
 
 io.on('connection', (socket) => {
     console.log("New User Has connected !!!", socket.id)
@@ -22,7 +35,7 @@ io.on('connection', (socket) => {
        
         socket.emit('message',{user : "admin", text : `${user.userName}, Welcome to the room ${user.roomName}`});
         socket.broadcast.to(user.roomName).emit('message', {user : "admin", text : `${user.userName}, has joined!`} )
-        socket.join(roomName);
+        socket.join(user.roomName);
         // to display the no. of users present in a room
         io.to(user.roomName).emit('roomData', {users : getUsersInRoom(user.roomName)})
         callback();
@@ -32,7 +45,9 @@ io.on('connection', (socket) => {
     socket.on('sendMessage', (message, callback) => {
         const user = getUser(socket.id);
         console.log("user = ", user);
-        
+        console.log( "sendMessage = ", message);
+
+
         io.to(user.roomName).emit('message', {user : user.userName, text : message});
         callback();
     })

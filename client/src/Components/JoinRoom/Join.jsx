@@ -1,14 +1,25 @@
 import React,{useState} from "react";
+import axios from "axios";
 
+const error = "userName is Taken";
 const Join = (props) => {
 
     const [name, setName] = useState('');
+
 
     function handleChange(e){
         e.preventDefault();
         if(name)
         {
-                props.setUsername(name);
+                axios.get('/isUserPresent/' + props.name + "/" + name).then(response => {
+
+                    if(!response.data)
+                    props.setUsername(name);
+                    else{
+                        alert(error);
+                    }
+                })
+               
         }
     }
     return (

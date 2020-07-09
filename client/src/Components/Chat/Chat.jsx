@@ -11,6 +11,7 @@ let socket;
 
 const Chat = ({name, username}) => {
     
+    console.log(name, username);
 
     // const [roomName, setRoomName] = useState('');
     // const [userName, setUserName] = useState('');
@@ -43,7 +44,9 @@ const Chat = ({name, username}) => {
     useEffect(() => {
         // console.log("inside effect ", name);
         socket.on('message', (message) => {
-            setMessages(prev => [...prev, message]);
+           // console.log("message = ", message);
+             setMessages(prev => [...prev, message]);
+            
         });
         socket.on('roomData', (message) => {
             setUsers(message);
@@ -58,7 +61,7 @@ const Chat = ({name, username}) => {
         }
     }
 
-       // console.log( "messages = ", messages);
+       console.log( "messages = ", messages);
         
     return (
         <>
