@@ -1,27 +1,17 @@
-import React from "react";
+import React,{useState} from "react";
 import Chat from "../Chat/Chat";
 import Join from "../JoinRoom/Join";
-import {useRoutes} from "hookrouter";
 
+const Room = ({name}) => {
 
-
-const routes = {
-
-    '/' : () => (name) => <Join name = {name} />,
-    '/chat/:username' : ({username}) => (name)  => <Chat name = {name} username = {username} />
-}
-
-
-const Room = (props) => {
-
-    const result = useRoutes(routes);
+    const [username, setUsername] = useState('');
 
     return (
-        <>
-        {result(props.name)}
-        </>
-    )
 
+        username === "" ? <Join name = {name} setUsername = {setUsername} />
+        : <Chat name ={name} username = {username} />
+    
+    )
 }
 
 export default Room;
