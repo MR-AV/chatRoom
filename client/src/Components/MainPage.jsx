@@ -4,14 +4,11 @@ import List from "./AvailableRooms/ListGroup";
 
 const MainPage = () => {
 
-    const [roomName, setRoomName] = useState('');
+    const [roomName, setRoomName] = useState(null);
 
     return (
-
-        roomName === '' ? <List setRoomName = {setRoomName} />
-        : <Room name = {roomName}/>
-    
-    )
+        roomName ? <Room name={roomName} /> : <List setRoomName={setRoomName} />
+    );
 }
 
 export default MainPage;

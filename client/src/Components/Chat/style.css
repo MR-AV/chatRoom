@@ -1,0 +1,42 @@
+@media(min-width: 800px) {
+    .chat-screen {
+        position: relative;
+        background-color: antiquewhite;
+        display: grid;
+        height: 100%;
+        grid-template-columns: 1000px 1fr 1fr;
+        grid-template-rows: 1fr 10fr 1fr;
+        grid-template-areas: "header header header" "message-box users users" "footer . .";
+        margin: 10px 40px 20px 40px;
+        padding: 10px 20px 10px 20px;
+        align-items: center;
+        justify-content: center;
+    }
+    .bkg-img {
+        position: fixed;
+        height: 100vh;
+        z-index: 1;
+    }
+    .chat-box {
+        box-shadow: 3px 2px 20px #000000;
+        background-color: rgba(39, 139, 93, 0.37);
+        grid-area: message-box;
+        display: flex;
+        flex-direction: column;
+    }
+    .chat-user-present {
+        color: red;
+        font-size: medium;
+        border: 1px solid grey;
+        grid-area: users;
+    }
+    .room-info {
+        grid-area: header;
+        display: flex;
+        justify-content: space-evenly;
+    }
+    .footer {
+        grid-area: footer;
+        text-align: center;
+    }
+}

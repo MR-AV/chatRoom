@@ -1,0 +1,22 @@
+.msg-field {
+    display: flex;
+    width: 800px;
+    justify-content: space-between;
+}
+
+.input-msg-field {
+    width: 80%;
+    margin-left: 1em;
+    margin-bottom: 5px;
+    height: 2em;
+    justify-self: flex-start;
+    background-color: inherit;
+    border: 0;
+    border-bottom: 2px solid black;
+}
+
+.send-btn {
+    background-color: aqua;
+    border-style: none;
+    border-radius: 10px;
+}

@@ -1,54 +1,46 @@
 import React ,{useState, useEffect} from "react";
 import io from "socket.io-client";
-import RoomInfo from "../RoomInfo/RoomInfo";
-import SendMessage from "../SendMessage/SendMessage";
-import DisplayMessages from "../Message/DisplayMessages";
-import {Card} from "react-bootstrap";
-import UserPresent from "../UserPresent/UserPresent";
-import "../UserPresent/UserPresent.css";
+import RoomInfo from "./RoomInfo/RoomInfo";
+import SendMessage from "./SendMessage/SendMessage";
+import DisplayMessages from "./Message/DisplayMessages";
+import UserPresent from "./UserPresent/UserPresent";
+import './style.css';
 
 let socket;
 
-const Chat = ({name, username}) => {
+function Chat({name:roomName, username:userName}){
     
-    console.log(name, username);
+    console.log(roomName, userName);
 
-    // const [roomName, setRoomName] = useState('');
-    // const [userName, setUserName] = useState('');
     const [message, setMessage] = useState('');
     const [messages, setMessages] = useState([]);
-    const[users, setUsers] = useState({});
+    const[users, setUsers] = useState({users:[]});
+
     const ENDPOINT = "localhost:5000";
     useEffect(() => {
 
         socket = io(ENDPOINT);
-        console.log("inside nameeffect ", name);
+        console.log("inside nameeffect ", roomName);
 
-        // setRoomName(name);
-        // setUserName(userName);
-        
-        socket.emit('join', {name, username}, (error) => {
+        socket.emit('join', {name: roomName, username: userName}, (error) => {
             if(error){
-            alert(error);
-           
+                alert(error);
             }
         });
 
         return () => {
             console.log("unmounting!!");
             socket.emit('disconnect');
-             socket.close();
+            socket.close();
         }
-    } ,[ENDPOINT, name, username]);
+    } ,[ENDPOINT, roomName, userName]);
 
     useEffect(() => {
-        // console.log("inside effect ", name);
         socket.on('message', (message) => {
-           // console.log("message = ", message);
              setMessages(prev => [...prev, message]);
-            
         });
         socket.on('roomData', (message) => {
+            console.log('Users  ', message);
             setUsers(message);
         });
     }, []);
@@ -64,26 +56,17 @@ const Chat = ({name, username}) => {
        console.log( "messages = ", messages);
         
     return (
-        <>
-        <div className = "d-flex">
-        <div>
-        <Card style={{ width: '18rem' }}>
-        <Card.Header style ={{background : "blue", color : "white"}}>
-        <RoomInfo roomName = {name}/>
-        </Card.Header>    
-         <Card.Body>
-        <DisplayMessages messages = {messages} name = {username}/>
-        </Card.Body> 
-        
-        <Card.Footer><SendMessage message = {message} setMessage = {setMessage} sendMessage = {sendMessage}/></Card.Footer>    
-        </Card>
+        <div className = "chat-screen">
+            <div className="room-info">
+                <RoomInfo roomName={roomName} userCount={ users.users.length || 0 }/>
+            </div>    
+            <div className="chat-box">
+                <DisplayMessages messages={messages} name={userName} />
+                <div className="input-msg"><SendMessage message={message} setMessage={setMessage} sendMessage={sendMessage} /></div>    
+            </div> 
+                <UserPresent userPresent = {users} />
+            <div className="footer">copyright &copy; 2020</div>
         </div>
-        <div className = "chat-user-present">
-            <UserPresent userPresent = {users} />
-        </div>
-
-        </div>
-        </>
     )
 }
 
