@@ -6,7 +6,7 @@ import DisplayMessages from "../Message/DisplayMessages";
 import {Card} from "react-bootstrap";
 import UserPresent from "../UserPresent/UserPresent";
 import "../UserPresent/UserPresent.css";
-
+ import ip from  "./MyIp.js"
 let socket;
 
 const Chat = ({name, username}) => {
@@ -18,7 +18,9 @@ const Chat = ({name, username}) => {
     const [message, setMessage] = useState('');
     const [messages, setMessages] = useState([]);
     const[users, setUsers] = useState({});
-    const ENDPOINT = "localhost:5000";
+    // const ENDPOINT = "localhost:5000";
+     //for android connection
+      const ENDPOINT = ip;
     useEffect(() => {
 
         socket = io(ENDPOINT);
