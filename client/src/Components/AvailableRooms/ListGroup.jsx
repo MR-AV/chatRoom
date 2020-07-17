@@ -12,7 +12,7 @@ const List = ({setRoomName}) => {
       <ListGroup variant="flush">
         <ListGroup.Item><button onClick = {() => {setRoomName('Boycott China')}}> <ArrowForwardIosIcon color="primary"/></button> Boycott China </ListGroup.Item>
         <ListGroup.Item><button onClick = {() => {setRoomName('Boycott PUBG')}}> <ArrowForwardIosIcon color="primary"/></button> Boycott PUBG</ListGroup.Item>
-        <ListGroup.Item><button onClick = {() => {setRoomName('Boycott PAhadis')}}> <ArrowForwardIosIcon color="primary"/></button> Boycott Pahadis</ListGroup.Item>
+        <ListGroup.Item><button onClick = {() => {setRoomName('Boycott Rava Idli')}}> <ArrowForwardIosIcon color="primary"/></button> Boycott Rava Idli</ListGroup.Item>
       </ListGroup>
     </Card>
     

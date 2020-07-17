@@ -1,0 +1,43 @@
+.chat-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+     align-items: center;
+      
+}
+
+.chat-screen>div {
+    width: 70%;
+    margin: 10px;
+    text-align: center;
+  }
+
+.user-present{
+    display: flex;
+    margin : 2vw;
+    justify-content: end;
+
+}
+
+.chat-box{
+    display: flex;
+    flex-direction:row-reverse;
+    border: 1px solid grey;
+    background-color: cornsilk;
+    width: 100%; 
+     
+}
+
+.chat-header{
+
+    width: 15%;
+    background-color: rgb(0, 183, 255) !important;
+    color:white !important;
+    margin: 2rem;
+    border-radius: 1rem;
+    
+}
+.chat{
+    width: 75%;
+    padding:2rem;
+}

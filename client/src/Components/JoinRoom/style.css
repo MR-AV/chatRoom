@@ -1,0 +1,6 @@
+.username-input {
+    border-width: 0px;
+    border-color: white;
+    border-bottom: 1px solid black;
+    box-shadow: 0px 10px 40px rgb(46, 44, 44);
+}

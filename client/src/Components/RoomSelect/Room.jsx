@@ -6,6 +6,7 @@ const Room = ({name}) => {
 
     const [username, setUsername] = useState('');
 
+
     return (
 
         username === "" ? <Join name = {name} setUsername = {setUsername} />

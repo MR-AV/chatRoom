@@ -1,0 +1,22 @@
+/* .user-display {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    height: 100%;
+    width: 20vw;
+    margin-left: 10px;
+} */
+
+
+.users-box{
+
+    width: 100%;
+    /* background-color: grey; */
+    
+
+}
+.active{
+    color:green;
+    font-size: small !important;
+    padding :3px;
+}
