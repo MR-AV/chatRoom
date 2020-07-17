@@ -1,12 +1,14 @@
 .msg-field {
      display: flex; 
     width: 100%;
+    overflow: auto;
     /* justify-content: space-between; */
 }
 
  .input-msg-field {
     
     width: 60%;
+    /* max-width: 60%; */
      /* margin-left: 1em;
     margin-bottom: 5px;
     height: 2em;
@@ -16,9 +18,10 @@
     border: 0;
     border-bottom: 2px solid black; 
      /* resize : none;  */
-    flex-shrink: 0;
+    /* flex-shrink: 0; */
     /* font-size : 18px; */
     max-height:250px;
+    
     overflow-y: auto;
     overflow-x: hidden;
 

@@ -20,6 +20,7 @@ const UserPresent = ({userPresent}) => {
     return(
             <div className = "users-box">
              <ScrollToBottom className = {ROOT_CSS}>
+             
                 <h5>Users Active</h5>
                 {users ? 
                  users.map((user, id) => <UsersDisplay key = {id} userName = {user.userName}/>
@@ -27,6 +28,7 @@ const UserPresent = ({userPresent}) => {
                  :
                  null
                  } 
+                
                  </ScrollToBottom>
                  </div>
     )

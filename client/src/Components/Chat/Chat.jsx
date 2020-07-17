@@ -6,6 +6,7 @@ import DisplayMessages from "./Message/DisplayMessages";
 import UserPresent from "./UserPresent/UserPresent";
 import "./style.css";
 import "./UserPresent/style.css";
+import ip from "./MyIp";
 
 let socket;
 
@@ -17,7 +18,8 @@ function Chat({name:roomName, username:userName}){
     const [messages, setMessages] = useState([]);
     const[users, setUsers] = useState({users:[]});
 
-    const ENDPOINT = "localhost:5000";
+     const ENDPOINT = "localhost:5000";
+    ///const ENDPOINT = ip;
     useEffect(() => {
 
         socket = io(ENDPOINT);

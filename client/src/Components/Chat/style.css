@@ -3,6 +3,7 @@
     flex-direction: column;
     justify-content: center; 
      align-items: center;
+     overflow: auto;
       
 }
 
@@ -38,6 +39,6 @@
     
 }
 .chat{
-    width: 75%;
+    width: 75%;  
     padding:2rem;
 }
