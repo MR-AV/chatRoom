@@ -1,46 +1,47 @@
 .msg-field {
-     display: flex; 
+    display: flex;
     width: 100%;
     overflow: auto;
     /* justify-content: space-between; */
 }
 
- .input-msg-field {
-    
+.input-msg-field {
     width: 60%;
     /* max-width: 60%; */
-     /* margin-left: 1em;
+    /* margin-left: 1em;
     margin-bottom: 5px;
     height: 2em;
     justify-self: flex-start; */
     text-align: justify;
     background-color: inherit;
     border: 0;
-    border-bottom: 2px solid black; 
-     /* resize : none;  */
+    border-bottom: 2px solid black;
+    /* resize : none;  */
     /* flex-shrink: 0; */
     /* font-size : 18px; */
-    max-height:250px;
-    
+    max-height: 250px;
     overflow-y: auto;
     overflow-x: hidden;
-
 }
 
 .send-btn {
-   
     background-color: white;
     border: 1px solid aqua;
     border-style: none;
     border-radius: 10px;
-     /* width: 35%;
+    /* width: 35%;
      flex-shrink: 0;  */
     margin-left: 5px;
+}
 
-    
-  
-} 
 
 /* .hide-span{
     display : none;
 } */
+
+@media(max-width:600px) {
+    .input-msg-field {
+        width: 100%;
+        max-height: 3em;
+    }
+}

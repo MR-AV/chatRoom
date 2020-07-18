@@ -23,7 +23,7 @@ function Join(props){
     
     function handleChange(event){
         event.preventDefault();
-        if(!err[0] &&checkUsername(name)){
+        if(!err[0] && checkUsername(name)){
             axios.get('/isUserPresent/' + props.name + "/" + name).then(response => {
                 if (!response.data.isUserPresent)
                     props.setUsername(name);
