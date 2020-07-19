@@ -46,3 +46,10 @@
 .msg-box {
     height: 70vh;
 }
+
+.read-more {
+    color: rgb(0, 102, 255);
+    font-size: 0.7em;
+    padding-right: 2em;
+    cursor: pointer;
+}
