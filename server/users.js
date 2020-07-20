@@ -12,8 +12,12 @@ const isUserExist = ({roomName, userName}) => {
 
 const addUser = ({id, roomName, userName}) => {
 
-    roomName = roomName.trim().toLowerCase();
-    userName = userName.trim().toLowerCase();
+    // roomName = roomName.trim().toLowerCase();
+    // userName = userName.trim().toLowerCase();
+
+    roomName = roomName;
+    userName = userName;
+
 
     const existingUSer = isUserExist({roomName, userName});
     if(existingUSer){

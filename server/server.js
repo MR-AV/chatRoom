@@ -11,10 +11,11 @@ const { isUserExist, addUser, removeUser, getUser, getUsersInRoom } = require(".
 
 app.get('/isUserPresent/:roomName/:userName', (req, res) => {
 
-    const userName = req.params.userName.trim().toLowerCase();
-    const roomName = req.params.roomName.trim().toLowerCase();
+    // const userName = req.params.userName.trim().toLowerCase();
+    // const roomName = req.params.roomName.trim().toLowerCase();
 
-
+    const userName = req.params.userName;
+    const roomName = req.params.roomName;
 
     const isPresent = isUserExist({ roomName, userName });
 

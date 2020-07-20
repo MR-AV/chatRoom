@@ -6,7 +6,9 @@ const Message = ({user, name}) => {
     const [countLen, setCountLen] = useState(1);
     const maxCount = Math.ceil(user.text.length / 200);
 
-    const currentUser = user.user.trim().toLowerCase();
+    // const currentUser = user.user.trim().toLowerCase();
+
+    const currentUser = user.user;
 
     function getMessage(){
          let range = Math.min(countLen*200, user.text.length);
