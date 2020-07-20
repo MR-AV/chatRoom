@@ -1,12 +1,13 @@
 import React from "react";
 import {Card, ListGroup} from "react-bootstrap";
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import "./style.css";
 
 const List = ({setRoomName}) => {
 
   return (
     <>
-
+    <div className="d-flex center justify-content-center align-items-center ">
     <Card style={{ width: '18rem' }}>
     <Card.Header>Available Rooms</Card.Header>
       <ListGroup variant="flush">
@@ -15,7 +16,7 @@ const List = ({setRoomName}) => {
         <ListGroup.Item><button onClick = {() => {setRoomName('Boycott Rava Idli')}}> <ArrowForwardIosIcon color="primary"/></button> Boycott Rava Idli</ListGroup.Item>
       </ListGroup>
     </Card>
-    
+    </div>
   </>
   )
 

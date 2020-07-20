@@ -2,14 +2,15 @@ import React,{useState} from "react";
 import ReactEmoji from "react-emoji";
 import "./style.css"
 
-const Message = ({user:msg, name}) => {
+const Message = ({user, name}) => {
     const [countLen, setCountLen] = useState(1);
-    const maxCount = Math.ceil(msg.text.length / 200);
+    const maxCount = Math.ceil(user.text.length / 200);
 
-    const currentUser = name.trim().toLowerCase();
+    const currentUser = user.user.trim().toLowerCase();
 
     function getMessage(){
-        return msg.text.substr(0, countLen * 200);
+         let range = Math.min(countLen*200, user.text.length);
+         return user.text.substr(0, range);
     }
 
     function extendMessage() {
@@ -21,7 +22,7 @@ const Message = ({user:msg, name}) => {
 
 
     return (
-        currentUser === msg.user ? (
+        currentUser === name ? (
             <div className="chatBox justify-end">
                 <div className="text">
                     <div className="usertext user-color" >
@@ -36,7 +37,7 @@ const Message = ({user:msg, name}) => {
         ) : (
                 <div className="chatBox justify-start ">
                     <div className="text">
-                        <div className="username">{msg.user}</div> 
+                        <div className="username">{user.user}</div> 
                         <div className="usertext">
                             {ReactEmoji.emojify(getMessage())}
                             {countLen < maxCount && <span onClick={extendMessage} className="read-more">  read more..</span>}

@@ -34,7 +34,8 @@ const SendMessage = ({message, setMessage, sendMessage}) => {
             contentEditable = "true"
             className="input-msg-field" 
             onInput = {(event) => setMessage(event.target.innerText) }
-            onKeyPress = {handleKeyPress}>
+            onKeyPress = {handleKeyPress}
+            autoFocus>
             </div>
             <button
                 className="send-btn"
