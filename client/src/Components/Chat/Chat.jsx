@@ -71,7 +71,7 @@ function Chat({name:roomName, username:userName}){
             </div>     */}
             <div className="chat-screen">
             <div style={{flexShrink : "0"}} >
-                <div className = "card-header">{roomName}</div>
+                <div className = "card-header text-white bg-info ">{roomName}</div>
                 <div className = "chat-box">
                 <div className="chat-header"><UserPresent userPresent = {users} /></div>
                 <div className = "chat">
