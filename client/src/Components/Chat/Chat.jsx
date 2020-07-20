@@ -66,9 +66,6 @@ function Chat({name:roomName, username:userName}){
 
     return (
             <>
-            {/* <div className="room-info">
-                <RoomInfo roomName={roomName} userCount={ users.users.length || 0 }/>
-            </div>     */}
             <div className="chat-screen">
             <div style={{flexShrink : "0"}} >
                 <div className = "card-header text-white bg-info ">{roomName}</div>

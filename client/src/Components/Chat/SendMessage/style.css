@@ -16,7 +16,7 @@
     background-color: inherit;
     border: 0;
     border-bottom: 2px solid black;
-    /* resize : none;  */
+    resize : none; 
     /* flex-shrink: 0; */
     /* font-size : 18px; */
     max-height: 250px;

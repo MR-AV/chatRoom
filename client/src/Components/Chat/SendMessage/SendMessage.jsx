@@ -1,13 +1,10 @@
 import React, {useState} from "react";
 import './style.css';
 import SendIcon from '@material-ui/icons/Send';
-
+import { TextareaAutosize } from '@material-ui/core';
 
 
 const SendMessage = ({message, setMessage, sendMessage}) => {
-
-
-    const [height, setHeight] = useState(null);
 
 
     function handleKeyPress(event){
@@ -20,28 +17,27 @@ const SendMessage = ({message, setMessage, sendMessage}) => {
             else{
                 if(event.key === "Enter"){
                     sendMessage(event);
-                    event.target.innerText = "";
+                    
                 }
             }
         }
     }
 
+   
     return (
          <form  onSubmit={sendMessage} className="msg-field">
 
-            <div 
-            id = "editableDiv"
-            contentEditable = "true"
+            <TextareaAutosize
+            rowsMax={10}
             className="input-msg-field" 
-            onInput = {(event) => setMessage(event.target.innerText) }
+            onInput = {(event) => setMessage(event.target.value) }
             onKeyPress = {handleKeyPress}
-            autoFocus>
-            </div>
+            value = {message}
+            autoFocus
+            />
             <button
                 className="send-btn"
                 type="submit"
-                onClick = {() => {document.getElementById('editableDiv').innerHTML = ""}}
-
             ><SendIcon /></button>
            
         </form> 
